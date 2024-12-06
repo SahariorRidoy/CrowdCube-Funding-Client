@@ -73,10 +73,10 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <NavLink to="/" className="px-4 py-2 rounded-md">
+        <NavLink to="/login" className="px-4 py-2 rounded-md">
           Login
         </NavLink>
-        <NavLink to="/" className="px-4 py-2 rounded-md">
+        <NavLink to="/register" className="px-4 py-2 rounded-md">
           Register
         </NavLink>
 
