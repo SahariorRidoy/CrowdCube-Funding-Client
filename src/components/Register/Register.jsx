@@ -25,19 +25,32 @@ const Register = () => {
           <p className="absolute top-[-12px] left-20 lg:left-36 bg-white px-4 opacity-90 text-[#11175D]">
             Email Address
           </p>
-          <br />
-          <div className="relative">
+          
+          <div className="relative my-14">
             <input
-              className="border-2 focus:outline-none border-[#11175D] border-opacity-30 rounded-lg px-12 py-6 my-14"
+              className="border-2 focus:outline-none border-[#11175D] border-opacity-30 rounded-lg px-12 py-6"
               type="text"
               name="name"
               placeholder="Enter your name"
             />
-            <p className="absolute top-[45px] left-20 lg:left-36 opacity-90 bg-white px-4  text-[#11175D]">
+            <p className="absolute top-[-12px] left-20 lg:left-36 opacity-90 bg-white px-4  text-[#11175D]">
               Full Name
             </p> 
           </div>
-          <br />
+          <div className="relative my-14">
+            <input
+              className="border-2 focus:outline-none border-[#11175D] border-opacity-30 rounded-lg px-12 py-6"
+              type="text"
+              name="photo"
+              placeholder="Enter your photo URL"
+            />
+            <p className="absolute top-[-12px] left-20 lg:left-36 opacity-90 bg-white px-4  text-[#11175D]">
+              Photo URL
+            </p> 
+          </div>
+          
+
+          {/* Password Field */}
           <div className="relative">
             <input
               className="border-2 focus:outline-none border-[#11175D] border-opacity-30 rounded-lg px-12 py-6"

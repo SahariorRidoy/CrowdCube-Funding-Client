@@ -9,7 +9,7 @@ const Login = () => {
     setShowPassword(!showPassword);
   };
   return (
-    <div className="max-w-xl mx-auto flex justify-center my-10 border-2 shadow-lg rounded-lg py-10 ">
+    <div className="max-w-sm lg:max-w-xl lg:mx-auto flex justify-center my-10 border-2 shadow-lg rounded-lg py-10 mx-4 lg:px-0 ">
       <div className="text-center">
         <h1 className="text-[#11175D] text-4xl font-bold mb-7">
           Login to your account!
@@ -17,10 +17,10 @@ const Login = () => {
         
         <form>
           <div className="relative">
-            <label className="text-[#03014C] opacity-70">Email Address</label>{" "}
+            <label className="text-[#03014C] opacity-70 absolute left-16">Email Address</label>{" "}
             <br />
             <input
-              className="border-2 focus:outline-none border-[#11175D] border-opacity-30 px-8 rounded-md py-3 mb-6"
+              className="w-80 border-2 focus:outline-none border-[#11175D] border-opacity-30 px-8 rounded-md py-3 mb-6"
               type="text"
               name="email"
               placeholder="example@mail.com"
@@ -28,10 +28,10 @@ const Login = () => {
           </div>
           <br />
           <div className="relative">
-            <label className="text-[#03014C] opacity-70">Password</label>
+            <label className="text-[#03014C] opacity-70 absolute left-16">Password</label>
             <br />
             <input
-              className=" border-2 focus:outline-none border-[#11175D] border-opacity-30 px-8 rounded-md  py-3"
+              className="w-80 border-2 focus:outline-none border-[#11175D] border-opacity-30 px-8 rounded-md  py-3"
               type={showPassword ? "text" : "password"}
               name="password"
               placeholder="Enter your password"
@@ -39,12 +39,12 @@ const Login = () => {
             {showPassword ? (
               <FaEye
                 onClick={handleShowPassword}
-                className="absolute text-xl   left-72 top-11 cursor-pointer"
+                className="absolute text-xl left-[280px] top-10 cursor-pointer"
               />
             ) : (
               <FaEyeSlash
                 onClick={handleShowPassword}
-                className="absolute text-xl   left-72 top-11 cursor-pointer"
+                className="absolute text-xl left-[280px] top-10 cursor-pointer"
               />
             )}
           </div>
@@ -56,7 +56,7 @@ const Login = () => {
             Login
           </button>
           <p>or</p>
-          <div className="hover:opacity-50 cursor-pointer w-60 flex gap-3 mx-auto border-[#11175D] rounded-lg items-center py-3 border-2 pl-7 pr-10 border-opacity-30 my-4">
+          <div className="hover:opacity-50 cursor-pointer w-60 flex gap-3 mx-auto border-[#11175D] rounded-full items-center py-2 border-2 pl-7 pr-10 border-opacity-30 my-4">
           <img src={googleImg} alt="" />
           
           <button>Login with Google</button>

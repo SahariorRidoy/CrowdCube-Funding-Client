@@ -39,7 +39,7 @@ const Navbar = () => {
             </Link>
           </ul>
         </div>
-        <Link to="/" className="btn px-0 btn-ghost text-2xl">
+        <Link to="/" className="btn px-0 btn-ghost text-lg lg:text-2xl">
           Crowd Funding
         </Link>
       </div>
@@ -73,10 +73,14 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <NavLink to="/login" className="px-4 py-2 rounded-md">
+        <NavLink to="/login" className={({ isActive }) => 
+        isActive ? "font-semibold text-xl px-4 py-2 rounded-md bg-green-500 text-white" : "font-semibold text-green-500 text-xl px-4 py-2 rounded-md"
+      }>
           Login
         </NavLink>
-        <NavLink to="/register" className="px-4 py-2 rounded-md">
+        <NavLink to="/register" className={({ isActive }) => 
+        isActive ? "font-semibold text-xl px-4 py-2 rounded-md bg-green-500 text-white" : "font-semibold text-green-500 text-xl px-4 py-2 rounded-md"
+      }>
           Register
         </NavLink>
 
@@ -96,6 +100,7 @@ const Navbar = () => {
           </Link>
         )} */}
       </div>
+      
     </div>
   );
 };
