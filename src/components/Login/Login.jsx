@@ -9,22 +9,18 @@ const Login = () => {
     setShowPassword(!showPassword);
   };
   return (
-    <div className="w-[1320px] mx-auto flex justify-center mt-20">
-      <div>
+    <div className="max-w-xl mx-auto flex justify-center my-10 border-2 shadow-lg rounded-lg py-10 ">
+      <div className="text-center">
         <h1 className="text-[#11175D] text-4xl font-bold mb-7">
           Login to your account!
         </h1>
-        <div className="hover:opacity-50 cursor-pointer w-60 flex gap-3 border-[#11175D] rounded-lg items-center py-5 border-2 pl-7 pr-10 border-opacity-30 mb-8">
-          <img src={googleImg} alt="" />
-          
-          <button>Login with Google</button>
-        </div>
+        
         <form>
           <div className="relative">
             <label className="text-[#03014C] opacity-70">Email Address</label>{" "}
             <br />
             <input
-              className="border-b-2 focus:outline-none border-[#11175D] border-opacity-30 pr-12 py-6 mb-14"
+              className="border-2 focus:outline-none border-[#11175D] border-opacity-30 px-8 rounded-md py-3 mb-6"
               type="text"
               name="email"
               placeholder="example@mail.com"
@@ -35,7 +31,7 @@ const Login = () => {
             <label className="text-[#03014C] opacity-70">Password</label>
             <br />
             <input
-              className=" border-b-2 focus:outline-none border-[#11175D] border-opacity-30  pr-12 py-6"
+              className=" border-2 focus:outline-none border-[#11175D] border-opacity-30 px-8 rounded-md  py-3"
               type={showPassword ? "text" : "password"}
               name="password"
               placeholder="Enter your password"
@@ -43,26 +39,32 @@ const Login = () => {
             {showPassword ? (
               <FaEye
                 onClick={handleShowPassword}
-                className="absolute text-xl left-52 top-12 cursor-pointer"
+                className="absolute text-xl   left-72 top-11 cursor-pointer"
               />
             ) : (
               <FaEyeSlash
                 onClick={handleShowPassword}
-                className="absolute text-xl left-52 top-12 cursor-pointer"
+                className="absolute text-xl   left-72 top-11 cursor-pointer"
               />
             )}
           </div>
           <br />
           <button
-            className=" mt-12 btn bg-[#5F35F5] text-xl rounded-full text-white px-[85px] mb-9 hover:opacity-70"
+            className=" mt-4 btn bg-[#24a062] text-xl rounded-full text-white px-[100px] mb-4 hover:opacity-70"
             type="submit"
           >
             Login
           </button>
-          <p className="text-sm text-[#03014C] ml-6 mb-24">
-            Don't have an account?{" "}
+          <p>or</p>
+          <div className="hover:opacity-50 cursor-pointer w-60 flex gap-3 mx-auto border-[#11175D] rounded-lg items-center py-3 border-2 pl-7 pr-10 border-opacity-30 my-4">
+          <img src={googleImg} alt="" />
+          
+          <button>Login with Google</button>
+        </div>
+          <p className="text-sm text-[#03014C] mb-10">
+            Don't have an account?
             <span className="text-[#EA6C00] font-bold">
-              <Link to="/register">Register</Link>
+              <Link to="/register" className="underline">  Register</Link>
             </span>
           </p>
         </form>
