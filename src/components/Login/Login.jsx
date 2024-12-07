@@ -1,9 +1,62 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import googleImg from "../../assets/google.png"
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { AuthContext } from "../../Provider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Login = () => {
+  const navigate=useNavigate()
+  const location = useLocation();
+const {userLogin,handleGoogleLogin,setUser}=useContext(AuthContext)
+// Google Login
+const submitGoogleLogin = (e) => {
+  e.preventDefault();
+  handleGoogleLogin()
+    .then((result) => {
+      const user = result.user;
+      setUser(user)
+      toast.success("Login Successful!", {
+        duration: 4000,
+      });
+      setTimeout(() => {
+        navigate(location?.state ? location.state : "/");
+      }, 500);
+    })
+    .catch((error) => {
+      
+      toast.error("Cannot Login", {
+        duration: 4000,
+      });
+    });
+};
+// Login
+const handleLogIn = (e) => {
+e.preventDefault();
+const form = e.target;
+const email = form.email.value;
+const password = form.password.value;
+
+userLogin(email, password)
+      .then((result) => {
+        const user = result.user;
+        setUser(user)
+        toast.success("Login Successful!", {
+          duration: 2000,
+        });
+        setTimeout(() => {
+          navigate(location?.state ? location.state : "/");
+        }, 500);
+      })
+      .catch((error) => {
+        toast.error('Invalid email or password. Please Provide valid information.', {
+          duration: 4000,
+        });
+      });
+}
+
+
+  // Password toggling 
   const [showPassword, setShowPassword] = useState(false);
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
@@ -15,7 +68,7 @@ const Login = () => {
           Login to your account!
         </h1>
         
-        <form>
+        <form onSubmit={handleLogIn}>
           <div className="relative">
             <label className="text-[#03014C] opacity-70 absolute left-16">Email Address</label>{" "}
             <br />
@@ -59,7 +112,7 @@ const Login = () => {
           <div className="hover:opacity-50 cursor-pointer w-60 flex gap-3 mx-auto border-[#11175D] rounded-full items-center py-2 border-2 pl-7 pr-10 border-opacity-30 my-4">
           <img src={googleImg} alt="" />
           
-          <button>Login with Google</button>
+          <button onClick={submitGoogleLogin}>Login with Google</button>
         </div>
           <p className="text-sm text-[#03014C] mb-10">
             Don't have an account?

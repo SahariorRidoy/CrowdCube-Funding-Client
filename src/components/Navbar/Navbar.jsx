@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Navbar = () => {
+  const { user,logOut } = useContext(AuthContext);
+  console.log(user)
   return (
     <div className="navbar bg-base-100 max-w-[1320px] mx-auto">
       <div className="navbar-start">
@@ -32,10 +35,10 @@ const Navbar = () => {
             <NavLink to="/">My Campaign</NavLink>
             <NavLink to="/">My Donations</NavLink>
             <Link to="/">
-              <a className="btn bg-[#469ee2] text-white text-xl">Login</a>
+              <p className="btn bg-[#469ee2] text-white text-xl">Login</p>
             </Link>
             <Link to="/">
-              <a className="btn bg-[#469ee2] text-white text-xl">Register</a>
+              <p className="btn bg-[#469ee2] text-white text-xl">Register</p>
             </Link>
           </ul>
         </div>
@@ -73,33 +76,46 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <NavLink to="/login" className={({ isActive }) => 
-        isActive ? "font-semibold text-xl px-4 py-2 rounded-md bg-green-500 text-white" : "font-semibold text-green-500 text-xl px-4 py-2 rounded-md"
-      }>
-          Login
-        </NavLink>
-        <NavLink to="/register" className={({ isActive }) => 
-        isActive ? "font-semibold text-xl px-4 py-2 rounded-md bg-green-500 text-white" : "font-semibold text-green-500 text-xl px-4 py-2 rounded-md"
-      }>
-          Register
-        </NavLink>
-
-        {/* {
-        
-          
-          user && user.photoURL?<div><img className="w-12 h-12 rounded-full" src={user.photoURL} alt="" /></div>:''
+  {user?.photoURL && (
+    <img
+      className="w-12 h-12 rounded-full"
+      src={user.photoURL}
+      alt="User Photo"
+    />
+  )}
+  {user?.email ? (
+    <button
+      onClick={logOut}
+      className="btn btn-error text-white ml-2"
+    >
+      Log Out
+    </button>
+  ) : (
+    <>
+      <NavLink
+        to="/login"
+        className={({ isActive }) =>
+          isActive
+            ? "font-semibold text-xl px-4 py-2 rounded-md bg-green-500 text-white"
+            : "font-semibold text-green-500 text-xl px-4 py-2 rounded-md"
         }
-       
-        {user && user.email ? (
-          <Link onClick={logOut}>
-            <a className="btn btn-error text-white ml-2 ">Log Out</a>
-          </Link>
-        ) : (
-          <Link to="/login">
-            <a className="btn bg-[#469ee2] text-white text-xl">Login</a>
-          </Link>
-        )} */}
-      </div>
+      >
+        Login
+      </NavLink>
+      <NavLink
+        to="/register"
+        className={({ isActive }) =>
+          isActive
+            ? "font-semibold text-xl px-4 py-2 rounded-md bg-green-500 text-white"
+            : "font-semibold text-green-500 text-xl px-4 py-2 rounded-md"
+        }
+      >
+        Register
+      </NavLink>
+    </>
+  )}
+</div>
+
       
     </div>
   );
