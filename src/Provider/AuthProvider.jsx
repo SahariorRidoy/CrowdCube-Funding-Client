@@ -7,13 +7,22 @@ import toast from "react-hot-toast";
 export const AuthContext = createContext();
 
 const auth = getAuth(app);
-// Create user using email password
+
+
+  const AuthProvider = ({ children }) => {
+      const [user, setUser] = useState(null);
+      const [loading,setLoading]= useState(true)
+
+
+      // Create user using email password
 const createNewUser = (email, password) => {
+  setLoading(true)
   return createUserWithEmailAndPassword(auth, email, password);
 };
 
 // Login user
 const userLogin = (email, password) => {
+  setLoading(true)
     return signInWithEmailAndPassword(auth, email, password);
   };
 // Google login
@@ -24,6 +33,7 @@ const userLogin = (email, password) => {
 
 //   Logout
 const logOut = () => {
+  setLoading(true)
     toast.success("Log out successful!", { duration: 3000 });
     return signOut(auth);
   };
@@ -33,10 +43,6 @@ const updateUserProfile = (updatedData) => {
   };
 
 
-
-  const AuthProvider = ({ children }) => {
-      const [user, setUser] = useState(null);
-      
       
       // Passing data using context
   const authInfo = {
@@ -45,6 +51,7 @@ const updateUserProfile = (updatedData) => {
     handleGoogleLogin,
     logOut,
     user,
+    loading,
     setUser,
     updateUserProfile,
   };
@@ -52,6 +59,7 @@ const updateUserProfile = (updatedData) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+      setLoading(false)
     });
 
     return () => {

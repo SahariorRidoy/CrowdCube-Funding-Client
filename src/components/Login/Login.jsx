@@ -25,9 +25,7 @@ const submitGoogleLogin = (e) => {
     })
     .catch((error) => {
       
-      toast.error("Cannot Login", {
-        duration: 4000,
-      });
+      
     });
 };
 // Login
