@@ -1,4 +1,4 @@
-import { createBrowserRouter, Router } from "react-router"
+import { createBrowserRouter, data, Router } from "react-router"
 import MainLayout from "../MainLayout/MainLayout";
 import Home from "../components/Home/Home";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
@@ -9,6 +9,7 @@ import MyDonation from "../components/MyDonation/MyDonation";
 import Login from "../components/Login/Login";
 import Register from "../components/Register/Register";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import CampaignDetails from "../components/CampignDetails/CampaignDetails";
 
 const router = createBrowserRouter([
     {
@@ -22,6 +23,17 @@ const router = createBrowserRouter([
         {
           path: "/all-campaign",
           element: <AllCampaign/>,
+          loader:()=>(fetch('http://localhost:5000/add-campaign'))
+        },
+        {
+          path: "/add-campaign/:id",
+          element: <PrivateRoute><CampaignDetails /></PrivateRoute>,
+          loader: async ({ params }) => {
+            const response = await fetch(`http://localhost:5000/add-campaign/${params.id}`);
+            const data = await response.json();
+            console.log(data);
+            return data; 
+          },
         },
         {
           path: "/add-new-campaign",
