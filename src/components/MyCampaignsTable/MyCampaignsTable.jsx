@@ -1,8 +1,46 @@
 import React from "react";
 import { Link } from "react-router";
+import Swal from "sweetalert2";
 
-const MyCampaignsTable = ({ campaign, idx }) => {
+const MyCampaignsTable = ({ campaign, idx, setCampaigns  }) => {
   const { image,amount, date, title, _id } = campaign;
+  const handleDelete = () => {
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Proceed with delete
+        fetch(`http://localhost:5000/delete-campaign/${_id}`, {
+          method: "DELETE",
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.message === "Campaign deleted successfully") {
+              Swal.fire(
+                "Deleted!",
+                "Your campaign has been deleted.",
+                "success"
+              );
+              setCampaigns((prevCampaigns) =>
+                prevCampaigns.filter((campaign) => campaign._id !== _id)
+              );
+            } else {
+              Swal.fire("Error!", "Something went wrong.", "error");
+            }
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            Swal.fire("Error!", "An error occurred while deleting.", "error");
+          });
+      }
+    });
+  };
   return (
     <>
       <tr>
@@ -22,12 +60,12 @@ const MyCampaignsTable = ({ campaign, idx }) => {
               >
                 Update
               </Link>
-              <Link
-                to={`/add-campaign/${_id}`}
+              <button
+                onClick={handleDelete}
                 className="btn btn-error text-white"
               >
                 Delete
-              </Link>
+              </button>
             </div>
           </div>
         </td>

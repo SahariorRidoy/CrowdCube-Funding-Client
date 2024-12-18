@@ -60,6 +60,7 @@ const MyCampaign = () => {
                     key={campaign?._id}
                     idx={idx}
                     campaign={campaign}
+                    setCampaigns={setCampaigns}
                   />
                 );
               })
