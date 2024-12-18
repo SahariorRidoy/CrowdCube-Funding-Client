@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router";
 
 const MyCampaignsTable = ({ campaign, idx }) => {
-  const { image, amount, date, title, _id } = campaign;
+  const { image,amount, date, title, _id } = campaign;
   return (
     <>
       <tr>
@@ -12,11 +12,12 @@ const MyCampaignsTable = ({ campaign, idx }) => {
         </td>
         <td>{title}</td>
         <td>{date}</td>
+        <td>{amount}</td>
         <td>
           <div>
             <div className="flex gap-3">
               <Link
-                to={`/add-campaign/${_id}`}
+                to={`/update-campaign/${_id}`}
                 className="btn btn-info text-white"
               >
                 Update

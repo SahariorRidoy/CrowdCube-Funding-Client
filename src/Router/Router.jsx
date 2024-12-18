@@ -10,6 +10,7 @@ import Login from "../components/Login/Login";
 import Register from "../components/Register/Register";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import CampaignDetails from "../components/CampignDetails/CampaignDetails";
+import UpdateCampaign from "../components/UpdateCampaign/UpdateCampaign";
 
 const router = createBrowserRouter([
     {
@@ -42,6 +43,11 @@ const router = createBrowserRouter([
         {
           path: "/my-campaign",
           element: <PrivateRoute><MyCampaign/></PrivateRoute>,
+         
+        },
+        {
+          path: "/update-campaign/:id",
+          element: <PrivateRoute><UpdateCampaign/></PrivateRoute>,
          
         },
         {

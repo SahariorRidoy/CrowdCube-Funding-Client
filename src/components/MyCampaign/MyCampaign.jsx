@@ -54,7 +54,7 @@ const MyCampaign = () => {
               <p>No Data Found</p>
             ) : (
               campaigns?.map((campaign, idx) => {
-                console.log(campaign);
+                
                 return (
                   <MyCampaignsTable
                     key={campaign?._id}
