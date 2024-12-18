@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const CampaignTable = ({campaign,idx}) => {
-    const {image,amount,date,title,_id}=campaign
+    const {image,amount,date,title,_id}=campaign  
     return (
         <>
          <tr>
