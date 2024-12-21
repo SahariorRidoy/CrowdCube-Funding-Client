@@ -5,6 +5,8 @@ import { useLoaderData } from "react-router";
 
 const Home = () => {
   const runningCampaignData = useLoaderData();
+  console.log(runningCampaignData);
+  
   const currentDate =new Date();
   const filteredCampaigns = runningCampaignData
   ?.filter((campaign) => new Date(campaign.date) >= currentDate)

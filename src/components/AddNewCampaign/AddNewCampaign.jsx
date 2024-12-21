@@ -30,7 +30,7 @@ const AddNewCampaign = () => {
     };
     console.log(newCampaign);
 
-    fetch("http://localhost:5000/add-campaign", {
+    fetch("http://localhost:5000/all-campaign", {
       method: "POST",
       headers: {
         "Content-type": "application/json",

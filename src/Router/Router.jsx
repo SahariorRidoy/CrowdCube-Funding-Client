@@ -20,18 +20,18 @@ const router = createBrowserRouter([
         {
           path: "/",
           element: <Home></Home>,
-          loader:()=>(fetch('http://localhost:5000/add-campaign'))
+          loader:()=>(fetch('http://localhost:5000/all-campaign'))
         },
         {
           path: "/all-campaign",
           element: <AllCampaign/>,
-          loader:()=>(fetch('http://localhost:5000/add-campaign'))
+          loader:()=>(fetch('http://localhost:5000/all-campaign'))
         },
         {
-          path: "/add-campaign/:id",
+          path: "/all-campaign/:id",
           element: <PrivateRoute><CampaignDetails /></PrivateRoute>,
           loader: async ({ params }) => {
-            const response = await fetch(`http://localhost:5000/add-campaign/${params.id}`);
+            const response = await fetch(`http://localhost:5000/all-campaign/${params.id}`);
             const data = await response.json();
             console.log(data);
             return data; 

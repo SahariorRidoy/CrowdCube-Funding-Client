@@ -13,7 +13,7 @@ const CampaignTable = ({campaign,idx}) => {
                 <td>{amount}</td>
                 <td>
                 <div>
-                <Link to={`/add-campaign/${_id}`} className='btn btn-success text-white'>See More</Link>
+                <Link to={`/all-campaign/${_id}`} className='btn btn-success text-white'>See More</Link>
             </div>
                 </td>
             </tr>    

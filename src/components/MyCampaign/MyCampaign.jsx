@@ -42,16 +42,16 @@ const MyCampaign = () => {
         <table className="table">
           <thead>
             <tr>
-              <th>Serial</th>
-              <th>Campaign Photo</th>
-              <th>Campaign Name</th>
-              <th>Deadline</th>
-              <th>Amount</th>
+              <th className="text-base text-info">Serial</th>
+              <th className="text-base text-info">Campaign Photo</th>
+              <th className="text-base text-info">Campaign Name</th>
+              <th className="text-base text-info">Deadline</th>
+              <th className="text-base text-info">Amount</th>
             </tr>
           </thead>
           <tbody>
             {campaigns?.length === 0 ? (
-              <p>No Data Found</p>
+               <p className="text-center py-10 text-2xl text-error">No Data Found</p>
             ) : (
               campaigns?.map((campaign, idx) => {
                 
