@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../../Provider/AuthProvider";
 import toast from "react-hot-toast";
+import { Typewriter } from 'react-simple-typewriter'
 
 const Login = () => {
   const navigate=useNavigate()
@@ -60,15 +61,27 @@ userLogin(email, password)
     setShowPassword(!showPassword);
   };
   return (
-    <div className="max-w-sm lg:max-w-xl lg:mx-auto flex justify-center my-10 border-2 shadow-lg rounded-lg py-10 mx-4 lg:px-0 ">
+    <div className="max-w-sm lg:max-w-xl lg:mx-auto  border-2 bg-base-300 shadow-lg rounded-lg py-10 mx-4 lg:px-0 ">
       <div className="text-center">
-        <h1 className="text-[#11175D] text-4xl font-bold mb-7">
-          Login to your account!
-        </h1>
+        <h1 className="text-[#11175D] w-full overflow-hidden text-4xl font-bold mb-7">
+        <Typewriter
+          words={['Login to your account!']}
+          
+          
+          cursorStyle="|"
+          typeSpeed={70}
+          delaySpeed={1000}
+        />
+ </h1>
+      </div>
+      <div className="text-center flex justify-center">
+        
+          
+       
         
         <form onSubmit={handleLogIn}>
           <div className="relative">
-            <label className="text-[#03014C] opacity-70 absolute left-16">Email Address</label>{" "}
+            <label className="text-[#03014C] w-full opacity-70 absolute right-20">Email Address</label>{" "}
             <br />
             <input
               className="w-80 border-2 focus:outline-none border-[#11175D] border-opacity-30 px-8 rounded-md py-3 mb-6"
@@ -79,7 +92,7 @@ userLogin(email, password)
           </div>
           <br />
           <div className="relative">
-            <label className="text-[#03014C] opacity-70 absolute left-16">Password</label>
+            <label className="text-[#03014C] w-full opacity-70 absolute right-24">Password</label>
             <br />
             <input
               className="w-80 border-2 focus:outline-none border-[#11175D] border-opacity-30 px-8 rounded-md  py-3"

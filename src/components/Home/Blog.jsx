@@ -3,11 +3,15 @@ import blog1 from "../../assets/banner_1.jpg"
 import blog2 from "../../assets/Banner-2.jpg"
 import blog3 from "../../assets/Banner_1.3.png"
 import blog4 from "../../assets/Banner_3.png"
+import { Fade, Slide } from "react-awesome-reveal";
+
 const Blog = () => {
   return (
     <div>
       <h2 className="text-3xl pt-10 text-center font-bold pb-10">
+        <Slide>
         Latest from blog
+        </Slide>
       </h2>
       <div className="flex flex-col lg:flex-row justify-between gap-6">
         <div className="lg:w-1/2">

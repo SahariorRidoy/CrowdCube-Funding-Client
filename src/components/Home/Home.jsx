@@ -4,7 +4,7 @@ import RunningCampaign from "./RunningCampaign";
 import { useLoaderData } from "react-router";
 import FundraisingJourney from "./FundraisingJourney";
 import Blog from "./Blog";
-
+import { Fade, Slide } from "react-awesome-reveal";
 const Home = () => {
   const runningCampaignData = useLoaderData();
   const currentDate =new Date();
@@ -38,7 +38,10 @@ const Home = () => {
       </div>
       <Banner></Banner>
       <div className="max-w-[1320px] mx-auto">
+        <Slide>
+
       <h2 className="text-3xl pt-20 text-center font-bold pb-10">Running Campaign</h2>
+        </Slide>
         <div className="grid lg:grid-cols-3 gap-6">
 
       {filteredCampaigns?.map((runningCampaign, idx) => {

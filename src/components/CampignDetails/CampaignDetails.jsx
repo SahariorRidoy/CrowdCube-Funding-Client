@@ -24,10 +24,19 @@ const CampaignDetails = () => {
     });
     return () => unsubscribe();
   }, []);
+  const isDeadlineOver = new Date(date) < new Date();
 
   // Donate part
   const handleDonate = async () => {
-   
+    if (isDeadlineOver) {
+      Swal.fire({
+        icon: "warning",
+        title: "Donation not allowed",
+        text: "The deadline for this campaign has passed. You cannot donate.",
+        confirmButtonText: "Okay",
+      });
+      return;
+    }
 
     const donationData = {
       campaignId: details._id,
@@ -59,7 +68,11 @@ const CampaignDetails = () => {
         });
         navigate('/all-campaign')
       } else {
-        toast.error(`Error: ${result.message}`);
+        Swal.fire({
+          icon: "warning",
+          title: "You have already donated to this Campaign",
+          confirmButtonText: "Okay",
+        });
       }
     } catch (error) {
       console.error("Error during donation:", error);
@@ -68,7 +81,7 @@ const CampaignDetails = () => {
   };
 
   return (
-    <div className="max-w-[1320px] mx-auto text-center shadow-xl my-10">
+    <div className="max-w-[1320px] mx-auto text-center shadow-xl mb-10">
       {details ? (
         <>
           <div className="flex justify-center">
