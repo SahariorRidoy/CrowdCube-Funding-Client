@@ -5,7 +5,7 @@ import img3 from "../../assets/complete.jpg"
 const FundraisingJourney = () => {
   return (
     <div className="mb-10">
-      <h2 className="text-5xl pt-10 text-center font-bold pb-10">
+      <h2 className="text-3xl pt-10 text-center font-bold pb-10">
         Start your fundraising journey
       </h2>
 

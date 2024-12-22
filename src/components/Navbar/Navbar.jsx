@@ -9,7 +9,7 @@ const Navbar = () => {
     setIsDropdownVisible(false);
   }, [user]);
   return (
-    <div className="navbar bg-base-100 mb-10 max-w-[1320px] mx-auto">
+    <div className="navbar bg-base-100 max-w-[1320px] mx-auto">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
