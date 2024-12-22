@@ -1,9 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import Loading from "../Loading/Loading";
 
 const MyDonations = () => {
   const { user } = useContext(AuthContext);
   const [donations, setDonations] = useState([]);
+   const [loading, setLoading] = useState(true);
   useEffect(() => {
     const fetchDonations = async () => {
       try {
@@ -12,6 +14,7 @@ const MyDonations = () => {
         );
         const data = await response.json();
         setDonations(data);
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching donations:", error);
       }
@@ -19,7 +22,9 @@ const MyDonations = () => {
 
     fetchDonations();
   }, [user]);
-
+  if(loading){
+    return <Loading></Loading>
+}
   return (
     <div className="max-w-[1320px] mx-auto my-10">
       <h1 className="text-3xl font-semibold text-center mb-8 text-teal-800">

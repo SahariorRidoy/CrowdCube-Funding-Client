@@ -9,10 +9,10 @@ const Blog = () => {
       <h2 className="text-3xl pt-10 text-center font-bold pb-10">
         Latest from blog
       </h2>
-      <div className="flex justify-between gap-6">
-        <div className="w-1/2">
+      <div className="flex flex-col lg:flex-row justify-between gap-6">
+        <div className="lg:w-1/2">
           <div
-            className="hero h-[465px]"
+            className="hero lg:h-[465px]"
             style={{
               backgroundImage:
                 `url(${blog1})`,
@@ -31,7 +31,7 @@ const Blog = () => {
           </div>
         </div>
         {/* right side */} 
-        <div className="w-1/2 flex flex-col gap-4 bg-gray-300 px-4 py-2">
+        <div className="lg:w-1/2 flex flex-col gap-4 bg-gray-300 px-4 py-2">
           <div className="flex gap-10">
             <div>
               <h3 className="font-medium">The Power of Crowdfunding: Real Stories That Changed Lives you need to...</h3>

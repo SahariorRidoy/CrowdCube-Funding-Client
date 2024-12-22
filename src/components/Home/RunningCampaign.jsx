@@ -3,9 +3,6 @@ import { Link } from "react-router";
 
 const RunningCampaign = ({ runningCampaign, idx }) => {
   const { image, title, description, _id } = runningCampaign;
-  console.log(runningCampaign);
-  
- 
   return (
     <div className="card bg-base-100 w-96 shadow-xl border-2 mb-10 border-teal-200">
       <figure className="px-10 pt-10">

@@ -9,7 +9,7 @@ const FundraisingJourney = () => {
         Start your fundraising journey
       </h2>
 
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid lg:grid-cols-3 gap-6">
         <div className="card bg-base-100 w-96 border-2">
           <figure>
             <img

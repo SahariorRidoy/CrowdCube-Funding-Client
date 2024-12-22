@@ -52,6 +52,7 @@ const updateUserProfile = (updatedData) => {
     logOut,
     user,
     loading,
+    setLoading,
     setUser,
     updateUserProfile,
   };

@@ -1,12 +1,14 @@
 import React, { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import MyCampaignsTable from "../MyCampaignsTable/MyCampaignsTable";
+import Loading from "../Loading/Loading";
 
 const MyCampaign = () => {
   const [campaigns, setCampaigns] = useState([]);
   const [loading, setLoading] = useState(true);
   const { user: contextUser } = useContext(AuthContext);
-  const [user, setUser] = useState(contextUser || null);
+  const [user] = useState(contextUser || null);
+  
   useEffect(() => {
     const fetchUserCampaigns = async () => {
       if (!user?.email) return;
@@ -15,27 +17,20 @@ const MyCampaign = () => {
         const response = await fetch(
           `http://localhost:5000/my-campaign?email=${user.email}`
         );
-
-        if (!response.ok) {
-          throw new Error("Failed to fetch campaigns");
-        }
-
+      
         const data = await response.json();
         setCampaigns(data);
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching campaigns:", error);
-      } finally {
-        setLoading(false);
-      }
+      } 
     };
 
     fetchUserCampaigns();
   }, [user?.email]);
-
-  if (loading) {
-    return <p>Loading your campaigns...</p>;
-  }
-
+  if(loading){
+    return <Loading></Loading>
+}
   return (
     <div className="max-w-[1320px] mx-auto">
       <div className="overflow-x-auto">
@@ -51,7 +46,11 @@ const MyCampaign = () => {
           </thead>
           <tbody>
             {campaigns?.length === 0 ? (
-               <p className="text-center py-10 text-2xl text-error">No Data Found</p>
+               <tr>
+               <td colSpan="5" className="text-center py-10 text-2xl text-error">
+                 No Data Found
+               </td>
+             </tr>
             ) : (
               campaigns?.map((campaign, idx) => {
                 

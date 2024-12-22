@@ -5,11 +5,14 @@ import { AuthContext } from "../../Provider/AuthProvider";
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+
+
+  
   useEffect(() => {
     setIsDropdownVisible(false);
   }, [user]);
   return (
-    <div className="navbar bg-base-100 max-w-[1320px] mx-auto">
+    <div className="navbar bg-base-100 max-w-[1320px] mx-auto sticky top-0 z-50 bg-base-100">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -103,7 +106,8 @@ const Navbar = () => {
           </NavLink>
         </ul>
       </div>
-      <div className="navbar-end relative">
+      <div className="navbar-end relative flex items-center space-x-4">
+      
         {user?.photoURL ? (
           <div
             className="w-12 h-12 rounded-full overflow-hidden cursor-pointer"
