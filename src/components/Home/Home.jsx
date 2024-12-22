@@ -2,6 +2,7 @@ import React from "react";
 import Banner from "./Banner";
 import RunningCampaign from "./RunningCampaign";
 import { useLoaderData } from "react-router";
+import FundraisingJourney from "./FundraisingJourney";
 
 const Home = () => {
   const runningCampaignData = useLoaderData();
@@ -16,7 +17,7 @@ const Home = () => {
     <div>
       <Banner></Banner>
       <div className="max-w-[1320px] mx-auto">
-      <h2 className="text-5xl pt-32 text-center font-bold pb-10">Running Campaign</h2>
+      <h2 className="text-5xl pt-20 text-center font-bold pb-10">Running Campaign</h2>
         <div className="grid lg:grid-cols-3 gap-6">
 
       {filteredCampaigns?.map((runningCampaign, idx) => {
@@ -29,6 +30,7 @@ const Home = () => {
         );
       })}
         </div>
+        <FundraisingJourney></FundraisingJourney>
       </div>
     </div>
   );
