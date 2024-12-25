@@ -49,7 +49,7 @@ const CampaignDetails = () => {
     };
 
     try {
-      const response = await fetch("http://localhost:5000/donate", {
+      const response = await fetch("https://crowdfunding-theta-three.vercel.app/donate", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

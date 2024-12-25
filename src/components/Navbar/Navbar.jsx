@@ -36,10 +36,10 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
             <NavLink to="/">Home</NavLink>
-            <NavLink to="/">All Campaign</NavLink>
-            <NavLink to="/">Add New Campaign</NavLink>
-            <NavLink to="/">My Campaign</NavLink>
-            <NavLink to="/">My Donations</NavLink>
+            <NavLink to="/all-campaign">All Campaign</NavLink>
+            <NavLink to="/add-new-campaign">Add New Campaign</NavLink>
+            <NavLink to="/my-campaign">My Campaign</NavLink>
+            <NavLink to="/my-donation">My Donations</NavLink>
             <Link to="/">
               <p className="btn bg-[#469ee2] text-white text-xl">Login</p>
             </Link>

@@ -29,7 +29,7 @@ const UpdateCampaign = () => {
     const fetchCampaign = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/all-campaign/${id}`
+          `https://crowdfunding-theta-three.vercel.app/all-campaign/${id}`
         );
         const data = await response.json();
         setCampaign(data);
@@ -64,7 +64,7 @@ const UpdateCampaign = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/update-campaign/${id}`,
+        `https://crowdfunding-theta-three.vercel.app/update-campaign/${id}`,
         {
           method: "PUT",
           headers: {

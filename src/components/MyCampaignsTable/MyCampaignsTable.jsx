@@ -16,7 +16,7 @@ const MyCampaignsTable = ({ campaign, idx, setCampaigns  }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         // Proceed with delete
-        fetch(`http://localhost:5000/delete-campaign/${_id}`, {
+        fetch(`https://crowdfunding-theta-three.vercel.app/delete-campaign/${_id}`, {
           method: "DELETE",
         })
           .then((response) => response.json())

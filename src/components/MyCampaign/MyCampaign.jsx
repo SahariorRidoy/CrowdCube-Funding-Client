@@ -15,7 +15,7 @@ const MyCampaign = () => {
       try {
         setLoading(true);
         const response = await fetch(
-          `http://localhost:5000/my-campaign?email=${user.email}`
+          `https://crowdfunding-theta-three.vercel.app/my-campaign?email=${user.email}`
         );
       
         const data = await response.json();
