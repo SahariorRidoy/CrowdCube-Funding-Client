@@ -7,13 +7,13 @@ const CampaignTable = ({campaign,idx}) => {
         <>
          <tr>
             <td>{idx+1}</td>
-                <td><img className='w-20 rounded-md' src={image} alt="" /></td>
+                <td className='hidden sm:table-cell'><img className='w-20 rounded-md' src={image} alt="" /></td>
                 <td>{title}</td>
-                <td>{date}</td>
+                <td className='hidden sm:table-cell'>{date}</td>
                 <td>{amount}</td>
                 <td>
                 <div>
-                <Link to={`/all-campaign/${_id}`} className='btn btn-success text-white'>See More</Link>
+                <Link to={`/all-campaign/${_id}`} className='btn ml-[-40px] btn-success text-white'>See More</Link>
             </div>
                 </td>
             </tr>    

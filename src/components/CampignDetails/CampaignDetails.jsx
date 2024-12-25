@@ -81,7 +81,7 @@ const CampaignDetails = () => {
   };
 
   return (
-    <div className="max-w-[1320px] mx-auto text-center shadow-xl mb-10">
+    <div className="max-w-[1320px] mx-auto text-center shadow-xl px-6 lg:px-0 mb-10">
       {details ? (
         <>
           <div className="flex justify-center">

@@ -45,15 +45,15 @@ const MyCampaignsTable = ({ campaign, idx, setCampaigns  }) => {
     <>
       <tr>
         <td>{idx + 1}</td>
-        <td>
+        <td className='hidden sm:table-cell'>
           <img className="w-20 rounded-md" src={image} alt="" />
         </td>
         <td>{title}</td>
-        <td>{date}</td>
-        <td>{amount}</td>
+        <td className='hidden sm:table-cell'>{date}</td>
+        <td className='hidden sm:table-cell'>{amount}</td>
         <td>
           <div>
-            <div className="flex gap-3">
+            <div className="flex gap-3 ml-[-35px]">
               <Link
                 to={`/update-campaign/${_id}`}
                 className="btn btn-info text-white"

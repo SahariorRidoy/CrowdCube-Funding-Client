@@ -38,10 +38,10 @@ const MyCampaign = () => {
           <thead>
             <tr>
               <th className="text-base text-info">Serial</th>
-              <th className="text-base text-info">Campaign Photo</th>
+              <th className="text-base text-info hidden sm:table-cell">Campaign Photo</th>
               <th className="text-base text-info">Campaign Name</th>
-              <th className="text-base text-info">Deadline</th>
-              <th className="text-base text-info">Amount</th>
+              <th className="text-base text-info hidden sm:table-cell">Deadline</th>
+              <th className="text-base text-info hidden sm:table-cell">Amount</th>
             </tr>
           </thead>
           <tbody>

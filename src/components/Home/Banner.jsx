@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { Link } from 'react-router';
+import { Fade } from 'react-awesome-reveal';
 const Banner = () => {
     return (
       <Swiper
@@ -22,14 +23,14 @@ const Banner = () => {
     >
       {/* Slide 1 */}
       <SwiperSlide>
-        <div className="relative w-[1320px] h-[500px] mx-auto flex items-center justify-center">
+        <div className="relative lg:w-[1320px] lg:h-[500px] mx-auto flex items-center justify-center">
           <img
             src={banner1}
             alt="Crowdfunding platform features"
-            className="absolute w-[70%] h-full object-cover opacity-50"
+            className="absolute lg:w-[70%] lg:h-full object-cover opacity-50"
           />
           <div className="relative z-10 text-center text-black  p-8  rounded-md max-w-2xl">
-            <h2 className="text-4xl font-bold">Join the Movement</h2>
+            <h2 className="lg:text-4xl text-2xl font-bold"><Fade cascade damping={0.1}>Join the Movement</Fade></h2>
             <p className="mt-4 text-lg">
               Be part of a platform that empowers dreams and supports meaningful causes.
             </p>
@@ -40,14 +41,14 @@ const Banner = () => {
 
       {/* Slide 2 */}
       <SwiperSlide>
-        <div className="relative w-[1320px] h-[500px] mx-auto flex items-center justify-center">
+        <div className="relative lg:w-[1320px] lg:h-[500px] mx-auto flex items-center justify-center">
           <img
             src={banner2}
             alt="Successful campaigns on our platform"
             className="absolute  object-cover opacity-80"
           />
           <div className="relative z-10 text-center text-black p-8  rounded-md max-w-2xl">
-            <h2 className="text-4xl font-bold">Support Inspiring Campaigns</h2>
+            <h2 className="lg:text-4xl text-2xl font-bold"><Fade cascade damping={0.1}>Support Inspiring Campaigns</Fade></h2>
             <p className="mt-4 text-lg">
               Explore impactful campaigns and make a difference with your contributions.
             </p>
@@ -58,14 +59,14 @@ const Banner = () => {
 
       {/* Slide 3 */}
       <SwiperSlide>
-        <div className="relative w-[1320px] h-[500px] mx-auto flex items-center justify-center">
+        <div className="relative lg:w-[1320px] lg:h-[500px] mx-auto flex items-center justify-center">
           <img
             src={banner3}
             alt="How to start your own campaign"
             className="absolute object-cover opacity-70"
           />
           <div className="relative z-10 text-center text-black p-8 rounded-md max-w-2xl">
-            <h2 className="text-4xl font-bold">Start Your Campaign Today</h2>
+            <h2 className="lg:text-4xl text-2xl font-bold"><Fade cascade damping={0.1}>Start Your Campaign Today</Fade></h2>
             <p className="mt-4 text-lg">
               Raise funds for your cause or project and reach a global audience.
             </p>
