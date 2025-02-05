@@ -9,7 +9,15 @@ A crowdfunding platform that connects **campaign creators** with **potential don
 ---
 
 ## 📸 Screenshot  
-*(Add a relevant screenshot here)*  
+<div align="center">
+  <img height="400" src="https://github.com/SahariorRidoy/CrowdCube-Funding-Client/blob/main/crowdfunding1.png"  />
+</div>
+<div align="center">
+  <img height="400" src="https://github.com/SahariorRidoy/CrowdCube-Funding-Client/blob/main/crowdfunding2.png"  />
+</div>
+<div align="center">
+  <img height="400" src="https://github.com/SahariorRidoy/CrowdCube-Funding-Client/blob/main/crowdfunding3.png"  />
+</div>
 
 ---
 
